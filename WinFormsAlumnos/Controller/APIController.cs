@@ -18,6 +18,7 @@ namespace WinFormsAlumnos.Controller
             Timeout = TimeSpan.FromSeconds(30)
         };
 
+        #region-->Metodo GET
         public async Task<List<AlumnoModels>> GetAlumnosAsync(string url = "https://localhost:7079/api/Alumno")
         {
             using var resp = await _http.GetAsync(url).ConfigureAwait(false);
@@ -30,7 +31,9 @@ namespace WinFormsAlumnos.Controller
             return lista ?? new List<AlumnoModels>();
 
         }
+        #endregion
 
+        #region-->Metodo POST
         public async Task<AlumnoModels?> PostAlumnoAsync(AlumnoModels alumno, string url = "https://localhost:7079/api/Alumno")
         {
             if (alumno == null) return null;
@@ -54,8 +57,9 @@ namespace WinFormsAlumnos.Controller
                 return null;
             }
         }
+        #endregion
 
-        // PUT: Actualizar alumno existente
+        #region--> metodo PUT
         public async Task<bool> PutAlumnoAsync(int id, AlumnoModels alumno, string baseUrl = "https://localhost:7079/api/Alumno")
         {
             if (alumno == null) return false;
@@ -75,8 +79,9 @@ namespace WinFormsAlumnos.Controller
                 return false;
             }
         }
+        #endregion
 
-        // DELETE: Eliminar alumno por ID
+        #region--> metodo DELETE
         public async Task<bool> DeleteAlumnoAsync(int id, string baseUrl = "https://localhost:7079/api/Alumno")
         {
             try
@@ -90,6 +95,7 @@ namespace WinFormsAlumnos.Controller
                 return false;
             }
         }
+        #endregion
     }
 }
 

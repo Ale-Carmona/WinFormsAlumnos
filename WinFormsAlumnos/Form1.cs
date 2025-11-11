@@ -14,6 +14,7 @@ namespace WinFormsAlumnos
             InitializeComponent();
         }
 
+        #region-->boton mostrar
         private async void btnMostrar_Click(object sender, EventArgs e)
         {
             btnMostrar.Enabled = false;
@@ -24,7 +25,7 @@ namespace WinFormsAlumnos
 
                 if (alumnos == null || alumnos.Count == 0)
                 {
-                    MessageBox.Show("No se obtuvieron alumnos o la lista está vacía.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se obtuvieron alumnos", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgDatos.DataSource = null;
                 }
                 else
@@ -43,7 +44,9 @@ namespace WinFormsAlumnos
                 btnMostrar.Enabled = true;
             }
         }
+        #endregion
 
+        #region-->boton agregar
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
             btnAgregar.Enabled = false;
@@ -94,7 +97,9 @@ namespace WinFormsAlumnos
                 btnAgregar.Enabled = true;
             }
         }
-            
+        #endregion
+
+        #region-->boton actualizar
         private async void btnActualizar_Click(object sender, EventArgs e)
         {
             btnActualizar.Enabled = false;
@@ -155,6 +160,9 @@ namespace WinFormsAlumnos
                 btnActualizar.Enabled = true;
             }
         }
+        #endregion
+
+        #region-->boton eliminar
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -202,6 +210,6 @@ namespace WinFormsAlumnos
                 btnEliminar.Enabled = true;
             }
         }
+        #endregion
     }
-    
 }
